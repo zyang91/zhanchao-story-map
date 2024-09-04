@@ -4,9 +4,10 @@
 * [_Surveillance in New Orleans_](examples/NoLA_Surveillance_BrianaCervantes/), Briana Cervantes
 * [_A Spatial History of House Music_](examples/House_Music_MarlanaZink/), Marlana Zink
 
-## A sample from elsewhere on the internet
+## Samples from elsewhere on the internet
 
 * [_How the Air Campaign Against ISIS Grew_](http://www.nytimes.com/interactive/2014/12/31/world/middleeast/isis-airstrikes-map.html), New York Times
+* [_Philly’s Chinatown: 150 years of development, displacement, and resilience_](https://www.inquirer.com/history/inq2/chinatown-history-timeline-development-arena-20231128.html)
 
 ## Instructions
 
@@ -39,15 +40,12 @@ Many other cities, counties, states, and countries have dedicated data portals a
 Sources like [Stop Demolishing Philly](https://www.stopdemolishingphilly.com/map/) or other privately compiled data sources.
 
 
-Use one of the template story maps in the _templates/_ folder, modified as you see fit, to explain your topic.
-
-* At least 5 slides
-* Host your site on GitHub Pages
+Use one of the template story maps in the _templates/_ folder, modified as you see fit, to explain your topic. For example, open [templates/scrollytelly/](templates/scrollytelly/) and copy the contents to the root folder in this repository. You can then modify the HTML, CSS, JavaScript, and data to suit your needs.
 
 ### Step 2: Think About Slide Content
 
-Your story will have multiple slides, each with a title, some additional text, maybe images, and geographic data. Some parts of your slide content will go straight into your HTML, and other parts will go into a JavaScript structure to be placed on your map when the corresponding HTML content is visible.
+Your story will have multiple slides, each with a title, some additional text, maybe images, and geographic data. Your slide content will go straight into your HTML, and your map features will go in to separate GeoJSON files in the [data/](data/) folder.
 
 ### Step 3: Submit your story map
 
-Commit your code and push it to your repository on GitHub. Set up GitHub pages on the repository and submit the link to both the GitHub Repository and the live site on GitHub Pages via the assignment on the class Canvas.
+Commit your code and push it to your repository on GitHub. Set up GitHub pages on the repository and submit a new pull request into the original project repository in the class organization.
