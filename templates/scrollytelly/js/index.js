@@ -3,9 +3,11 @@ import { SlideDeck } from './slidedeck.js';
 const map = L.map('map', {scrollWheelZoom: false}).setView([0, 0], 0);
 
 // ## The Base Tile Layer
-L.tileLayer('https://stamen-tiles.a.ssl.fastly.net/watercolor/{z}/{x}/{y}.jpg', {
-  attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, under <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>. Data by <a href="http://openstreetmap.org">OpenStreetMap</a>, under <a href="http://creativecommons.org/licenses/by-sa/3.0">CC BY SA</a>.',
-}).addTo(map);
+const baseTileLayer = L.tileLayer('https://tiles.stadiamaps.com/tiles/stamen_watercolor/{z}/{x}/{y}.jpg', {
+  maxZoom: 16,
+  attribution: '&copy; <a href="https://stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; <a href="https://stamen.com/" target="_blank">Stamen Design</a> &copy; <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a>',
+});
+baseTileLayer.addTo(map);
 
 // ## Interface Elements
 const slides = document.querySelectorAll('.slide');
