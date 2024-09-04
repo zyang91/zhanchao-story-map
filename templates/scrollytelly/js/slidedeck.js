@@ -16,20 +16,23 @@ class SlideDeck {
   }
 
   /**
-  * ### updateDataLayer
-  *
-  * The updateDataLayer function will clear any markers or shapes previously
-  * added to the GeoJSON layer on the map, and replace them with the data
-  * provided in the `data` argument. The `data` should contain a GeoJSON
-  * FeatureCollection object.
-  *
-  * @param {object} data A GeoJSON FeatureCollection object
-  * @return {L.GeoJSONLayer} The new GeoJSON layer that has been added to the
-  *                          data layer group.
-  */
+   * ### updateDataLayer
+   *
+   * The updateDataLayer function will clear any markers or shapes previously
+   * added to the GeoJSON layer on the map, and replace them with the data
+   * provided in the `data` argument. The `data` should contain a GeoJSON
+   * FeatureCollection object.
+   *
+   * @param {object} data A GeoJSON FeatureCollection object
+   * @return {L.GeoJSONLayer} The new GeoJSON layer that has been added to the
+   *                          data layer group.
+   */
   updateDataLayer(data) {
     this.dataLayer.clearLayers();
-    const geoJsonLayer = L.geoJSON(data, { pointToLayer: (p, latlng) => L.marker(latlng) })
+    const geoJsonLayer = L.geoJSON(data, {
+      pointToLayer: (p, latlng) => L.marker(latlng),
+      style: (feature) => feature.properties.style,
+    })
         .bindTooltip((l) => l.feature.properties.label)
         .addTo(this.dataLayer);
 
@@ -75,6 +78,20 @@ class SlideDeck {
     const layer = this.updateDataLayer(collection);
 
     /**
+     * Create a bounds object from a GeoJSON bbox array.
+     * @param {Array} bbox The bounding box of the collection
+     * @return {L.latLngBounds} The bounds object
+     */
+    const boundsFromBbox = (bbox) => {
+      const [west, south, east, north] = bbox;
+      const bounds = L.latLngBounds(
+          L.latLng(south, west),
+          L.latLng(north, east),
+      );
+      return bounds;
+    };
+
+    /**
      * Create a temporary event handler that will show tooltips on the map
      * features, after the map is done "flying" to contain the data layer.
      */
@@ -89,8 +106,8 @@ class SlideDeck {
     };
 
     this.map.addEventListener('moveend', handleFlyEnd);
-    if (collection.bounds) {
-      this.map.flyToBounds(collection.bounds);
+    if (collection.bbox) {
+      this.map.flyToBounds(boundsFromBbox(collection.bbox));
     } else {
       this.map.flyToBounds(layer.getBounds());
     }
@@ -155,7 +172,8 @@ class SlideDeck {
 
     let i;
     for (i = 0; i < this.slides.length; i++) {
-      const slidePos = this.slides[i].offsetTop - scrollPos + (windowHeight * .7);
+      const slidePos =
+        this.slides[i].offsetTop - scrollPos + windowHeight * 0.7;
       if (slidePos >= 0) {
         break;
       }
@@ -168,6 +186,4 @@ class SlideDeck {
   }
 }
 
-export {
-  SlideDeck,
-};
+export { SlideDeck };
