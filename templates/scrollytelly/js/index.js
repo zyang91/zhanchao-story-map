@@ -13,8 +13,29 @@ baseTileLayer.addTo(map);
 const container = document.querySelector('.slide-section');
 const slides = document.querySelectorAll('.slide');
 
+const slideOptions = {
+  'second-slide': {
+    style: (feature) => {
+      return {
+        color: 'red',
+        fillColor: 'green',
+        fillOpacity: 0.5,
+      };
+    },
+  },
+  'third-slide': {
+    style: (feature) => {
+      return {
+        color: 'blue',
+        fillColor: 'yellow',
+        fillOpacity: 0.5,
+      };
+    },
+  },
+};
+
 // ## The SlideDeck object
-const deck = new SlideDeck(container, slides, map);
+const deck = new SlideDeck(container, slides, map, slideOptions);
 
 document.addEventListener('scroll', () => deck.calcCurrentSlideIndex());
 
