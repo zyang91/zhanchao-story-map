@@ -1,13 +1,6 @@
-## Samples from previous years
+## Samples
 
-* [_What's in a Vacant Lot_](../story-map-project-examples/examples/Vacant_Lots_AdrianLeon/), Adrián León, Max Masuda-Farkas, and Xuezhu Zhao
-* [_Surveillance in New Orleans_](../story-map-project-examples/examples/NoLA_Surveillance_BrianaCervantes/), Briana Cervantes
-* [_A Spatial History of House Music_](../story-map-project-examples/examples/House_Music_MarlanaZink/), Marlana Zink
-
-## Samples from elsewhere on the internet
-
-* [_How the Air Campaign Against ISIS Grew_](http://www.nytimes.com/interactive/2014/12/31/world/middleeast/isis-airstrikes-map.html), New York Times
-* [_Philly’s Chinatown: 150 years of development, displacement, and resilience_](https://www.inquirer.com/history/inq2/chinatown-history-timeline-development-arena-20231128.html)
+Find examples from previous years and elsewhere on the internet at https://github.com/Weitzman-MUSA-JavaScript/story-map-project-examples
 
 ## Instructions
 
